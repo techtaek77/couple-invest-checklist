@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부부 투자 점검표</title>
+<meta name="description" content="부부가 SCHD·QLD를 같이 모을 때 1인 기준 세금 선(양도세 250만원·금융소득 2천만원·피부양자 1천만원)과 부모 합산 자녀 증여 한도를 내 숫자로 점검하는 배당노마드 트리노 점검표.">
+<style>
+:root{--bg:#fbf8f1;--card:#fff;--ink:#22302a;--muted:#5d6b63;--line:#e3dccb;--mint:#7fb89a;--mint-d:#3f7d5d;--ochre:#c98a2e;--warn:#b5462f;--ok:#2f7a4f;--soft:#eef6f0;--warnsoft:#fbeee8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17201b;--card:#1f2a24;--ink:#e9efe9;--muted:#a9b8ae;--line:#33423a;--mint:#7fb89a;--mint-d:#9fd3b6;--ochre:#e0a64c;--warn:#ef8a72;--ok:#8fd3a8;--soft:#22342a;--warnsoft:#3a2620}}
+:root[data-theme="dark"]{--bg:#17201b;--card:#1f2a24;--ink:#e9efe9;--muted:#a9b8ae;--line:#33423a;--mint:#7fb89a;--mint-d:#9fd3b6;--ochre:#e0a64c;--warn:#ef8a72;--ok:#8fd3a8;--soft:#22342a;--warnsoft:#3a2620}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.7rem;line-height:1.3;margin:.2em 0 .4em}
+h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-top:.4em;border-top:2px solid var(--line)}
+h3{font-size:1.05rem;margin:1.2em 0 .4em}
+p{margin:.6em 0}
+.kicker{color:var(--mint-d);font-weight:700;font-size:.9rem;letter-spacing:.02em}
+.answer{background:var(--soft);border-left:5px solid var(--mint);padding:14px 16px;border-radius:10px}
+figure{margin:18px 0}
+figure img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);display:block}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:6px}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}}
+label{display:block;font-size:.9rem;margin:10px 0 4px;color:var(--muted)}
+input[type=number],input[type=date]{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:1rem}
+.chk{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:.95rem}
+button{background:var(--mint-d);color:#fff;border:0;border-radius:8px;padding:9px 14px;font-size:.95rem;cursor:pointer}
+button.ghost{background:transparent;color:var(--mint-d);border:1px solid var(--mint-d)}
+.out{margin-top:12px}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.82rem;font-weight:700}
+.pill.ok{background:var(--soft);color:var(--ok)}
+.pill.warn{background:var(--warnsoft);color:var(--warn)}
+.big{font-size:1.15rem;font-weight:700}
+.note{font-size:.85rem;color:var(--muted)}
+.err{color:var(--warn);font-weight:600}
+ul.check{list-style:none;padding:0}
+ul.check li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--line)}
+ul.check input{margin-top:5px;width:18px;height:18px;flex:none}
+.progress{height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+.progress>div{height:100%;background:var(--mint);width:0;transition:width .2s}
+.gift-row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end}
+.gift-row button{padding:9px 10px}
+nav.toc{font-size:.92rem}
+nav.toc a{color:var(--mint-d)}
+a{color:var(--mint-d)}
+footer{margin-top:40px;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+<main>
+<div class="kicker">배당노마드 · 트리노의 부부 투자 점검표 · 2026-10-28 확인 기준</div>
+<h1>부부가 SCHD·QLD를 같이 모으면, 누구 계좌에 담을까?</h1>
+<div class="answer">
+<p><b>세금 선은 사람마다, 아이 증여 한도는 부모 합쳐서.</b> 해외주식 양도소득 기본공제 250만원, 금융소득 종합과세 2,000만원, 건강보험 피부양자 금융소득 1,000만원은 <b>1인 기준</b>입니다. 미성년 자녀 증여재산공제 2,000만원은 <b>아빠·엄마 합산 10년</b>입니다. 배우자에게 증여한 주식은 2025년 이후 <b>1년 안에 팔면</b> 원래 산 가격으로 양도세를 계산합니다.</p>
+</div>
+<nav class="toc"><p>바로가기: <a href="#rules">기준표</a> · <a href="#tax">부부 세금 점검</a> · <a href="#gift">자녀 증여 장부</a> · <a href="#agree">합의 체크리스트</a> · <a href="#limits">한계와 출처</a></p></nav>
+
+<figure>
+<img src="images/trino-checkpoints.webp" alt="트리노가 메모장에 체크하며 화분을 살피고, 돋보기로 배당 기계를 점검하는 두 칸 그림" width="1536" height="1024">
+<figcaption>AI 생성 비유 삽화. 화분은 각자 계좌, 체크리스트는 부부가 같이 보는 점검표입니다. 실제 계좌 기록이 아닙니다.</figcaption>
+</figure>
+
+<h2 id="rules">1. 짐은 각자 가방에, 증여는 공용 가방에서</h2>
+<p>항공사 수하물 허용량이 1인당 정해져 있듯, 세금 선 대부분은 사람마다 따로 있습니다. 반대로 아이에게 주는 증여 한도는 가족이 같이 쓰는 공용 가방입니다. 아빠 가방에서 꺼내든 엄마 가방에서 꺼내든 같은 가방에서 빠집니다.</p>
+<div class="tbl"><table>
+<thead><tr><th>기준</th><th>단위</th><th>숫자 (2026-10-28 확인)</th><th>부부가 할 일</th></tr></thead>
+<tbody>
+<tr><td>해외주식 양도소득 기본공제</td><td>1인 · 1년</td><td>250만원, 초과분 22%(지방세 포함)</td><td>각자 계좌의 연간 실현손익을 따로 본다</td></tr>
+<tr><td>금융소득 종합과세</td><td>1인 · 1년</td><td>이자·배당 2,000만원 초과</td><td>배당이 한 사람에게 몰리는지 본다</td></tr>
+<tr><td>건강보험 피부양자</td><td>피부양자 본인</td><td>금융소득 1,000만원 초과 시 전액 소득 합산</td><td>피부양자 배우자 계좌에 배당을 몰지 않는다</td></tr>
+<tr><td>배우자 증여재산공제</td><td>받는 배우자 · 10년</td><td>6억원</td><td>투자금 이체를 기록, 필요하면 신고</td></tr>
+<tr><td>배우자 증여 주식 이월과세</td><td>증여일부터 1년</td><td>1년 안에 팔면 증여자 취득가액</td><td>1년 버틸 수 있는 종목만 검토</td></tr>
+<tr><td>미성년 자녀 증여재산공제</td><td>자녀 · 부모 합산 · 10년</td><td>2,000만원</td><td>아빠·엄마 증여를 한 장부에 합친다</td></tr>
+<tr><td>성년 자녀 증여재산공제</td><td>자녀(만 19세 이상) · 부모 합산 · 10년</td><td>5,000만원</td><td>직전 증여일과 10년 간격 확인</td></tr>
+</tbody></table></div>
+
+<h2 id="tax">2. 부부 세금 점검: 내 숫자 넣어 보기</h2>
+<p>올해 각자 계좌에서 <b>확정한</b> 해외주식 손익(손실은 음수)과 연간 이자·배당 예상액을 넣으세요. 입력값은 이 브라우저 밖으로 보내지 않습니다.</p>
+<div class="grid2">
+<div class="card"><h3>배우자 A</h3>
+<label for="a_gain">올해 해외주식 실현손익 (만원)</label><input id="a_gain" type="number" step="1" value="4147">
+<label for="a_fin">연간 이자·배당 (만원)</label><input id="a_fin" type="number" step="1" min="0" value="600">
+<div class="chk"><input id="a_dep" type="checkbox"><label for="a_dep" style="margin:0">건강보험 피부양자다</label></div>
+</div>
+<div class="card"><h3>배우자 B</h3>
+<label for="b_gain">올해 해외주식 실현손익 (만원)</label><input id="b_gain" type="number" step="1" value="0">
+<label for="b_fin">연간 이자·배당 (만원)</label><input id="b_fin" type="number" step="1" min="0" value="300">
+<div class="chk"><input id="b_dep" type="checkbox" checked><label for="b_dep" style="margin:0">건강보험 피부양자다</label></div>
+</div>
+</div>
+<p><button id="calc">점검하기</button> <button class="ghost" id="ex">영상 예시로 채우기</button></p>
+<div id="taxOut" class="out" aria-live="polite"></div>
+<p class="note">계산식: 각자 max(0, 실현손익 − 250만원) × 22%. 같은 사람·같은 해 손익만 통산됩니다. 환율·수수료·필요경비, 국내 상장 해외 ETF(배당소득 과세)는 반영하지 않습니다. 피부양자 판정은 금융소득만 보는 단순 점검이며 다른 소득·재산 요건은 공단 기준을 확인하세요.</p>
+
+<h2 id="gift">3. 자녀 증여 장부: 부모 합산 10년 확인</h2>
+<p>아빠·엄마가 준 금액을 <b>날짜순으로 모두</b> 넣으세요. 각 증여일 기준 과거 10년 안에 이미 받은 공제를 빼고, 증여일 나이에 맞는 한도(만 19세 미만 2,000만원, 이상 5,000만원)로 남은 공제를 계산합니다.</p>
+<div class="card">
+<label for="birth">아이 생년월일</label><input id="birth" type="date" value="2020-03-01">
+<div id="gifts"></div>
+<p><button class="ghost" id="addGift">증여 한 줄 추가</button> <button id="calcGift">장부 계산</button></p>
+<div id="giftOut" class="out" aria-live="polite"></div>
+</div>
+<p class="note">혼인·출산 증여재산공제(1억원), 조부모 증여(세대생략 할증), 증여세 세율 계산은 넣지 않았습니다. 공제를 넘는 금액이 나오면 신고 대상인지 세무사·국세청 상담으로 확인하세요. 신고 기한은 증여받은 달 말일부터 3개월입니다.</p>
+
+<figure>
+<img src="images/trino-promise-cash.webp" alt="트리노가 책상에서 계획을 적고, 달력에서 나온 동전이 컨베이어를 타고 화분으로 가는 그림" width="1536" height="1024">
+<figcaption>AI 생성 비유 삽화. 달력은 증여일 기록, 화분은 아이 계좌의 장기 적립을 뜻합니다.</figcaption>
+</figure>
+
+<h2 id="agree">4. 세금보다 먼저 맞출 부부 합의</h2>
+<p>체크 상태는 이 브라우저에만 저장됩니다. 부부가 같이 열어 놓고 한 줄씩 이야기해 보세요.</p>
+<div class="progress" aria-hidden="true"><div id="bar"></div></div>
+<p class="note" id="progTxt"></p>
+<ul class="check" id="checklist"></ul>
+<p><button class="ghost" id="resetChk">체크 초기화</button></p>
+
+<h2 id="limits">5. 어디까지 믿으면 되나</h2>
+<p>세법 숫자는 2026년 10월 28일에 국세청 안내, 국가법령정보센터 조문 위치, 증권사 세무 칼럼을 대조해 정리했습니다. 배우자 증여 주식 1년 이월과세는 법령 페이지 본문을 자동으로 읽지 못해 증권사 세무 칼럼으로 2025년 시행 내용을 확인했습니다. ISA 한도 개편은 2026년 세제개편 논의 중이라 넣지 않았습니다. 이 페이지는 투자·세무 자문이 아니며, 큰 금액의 증여·매도 전에는 세무사나 국세청 상담을 받으세요.</p>
+<ul>
+<li><a href="https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7960&amp;mi=6533">국세청 증여세 기본정보</a> · <a href="https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7727&amp;mi=2339">국세청 신고납부기한</a></li>
+<li><a href="https://www.law.go.kr/법령/상속세및증여세법/제53조">상속세 및 증여세법 제53조</a> · <a href="https://www.law.go.kr/법령/소득세법/제97조의2">소득세법 제97조의2</a> · <a href="https://www.law.go.kr/법령/소득세법/제103조">소득세법 제103조</a></li>
+<li><a href="https://www.samsungpop.com/v2/today-invest/series/taxguide-2676">삼성증권 세무 칼럼: 배우자 증여 후 양도</a></li>
+<li>출발 사례: <a href="https://www.youtube.com/watch?v=G8rzZ8C77hE">롱규 EP.23</a> (부부 SCHD 적립, 자녀 QLD 증여, 루브릭 익절)</li>
+<li>설명 글: <a href="https://www.dividend-nomad.com/">배당노마드</a></li>
+</ul>
+<footer>
+<p>© 2026 배당노마드 · 글·삽화 CC BY-NC-ND 4.0 (제3자 자료·링크 제외). 트리노 그림은 AI로 생성한 설명용 비유입니다. 투자 권유가 아닙니다. 원금 손실 위험이 있습니다.</p>
+</footer>
+</main>
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var fmt=function(v){return (Math.round(v*100)/100).toLocaleString('ko-KR',{maximumFractionDigits:2})+'만원'};
+function num(id){var el=$(id);var v=el.value.trim();if(v==='')return 0;var n=Number(v);return isFinite(n)?n:NaN}
+function taxOf(g){return Math.max(0,g-250)*0.22}
+function person(name,g,f,dep){
+  var t=taxOf(g),rows=[];
+  rows.push('<tr><td>'+name+'</td><td class="num">'+fmt(g)+'</td><td class="num">'+fmt(t)+'</td><td>'+
+    (f>2000?'<span class="pill warn">2,000만원 초과</span> 종합과세 대상':'<span class="pill ok">2,000만원 이하</span>')+
+    (dep?(f>1000?' · <span class="pill warn">피부양자 주의</span> 금융소득 전액 합산':' · <span class="pill ok">피부양자 1,000만원 이하</span>'):'')+'</td></tr>');
+  return {t:t,html:rows.join('')};
+}
+function calcTax(){
+  var ag=num('a_gain'),af=num('a_fin'),bg=num('b_gain'),bf=num('b_fin');
+  if([ag,af,bg,bf].some(isNaN)||af<0||bf<0){$('taxOut').innerHTML='<p class="err">숫자를 확인하세요. 이자·배당은 0 이상이어야 합니다.</p>';return}
+  var A=person('배우자 A',ag,af,$('a_dep').checked),B=person('배우자 B',bg,bf,$('b_dep').checked);
+  var sum=A.t+B.t, total=ag+bg;
+  var one=taxOf(total);
+  var html='<div class="tbl"><table><thead><tr><th>사람</th><th>실현손익</th><th>예상 양도세</th><th>금융소득 선</th></tr></thead><tbody>'+A.html+B.html+
+    '<tr><th>부부 합계</th><td class="num">'+fmt(total)+'</td><td class="num"><b>'+fmt(sum)+'</b></td><td></td></tr></tbody></table></div>';
+  html+='<p>같은 손익이 <b>한 사람 계좌에 몰렸다면</b> 예상 양도세는 <b>'+fmt(one)+'</b>입니다. ';
+  if(ag*bg<0){html+='다만 지금처럼 한 사람은 이익, 다른 사람은 손실이면 <b>서로 상계되지 않습니다</b>. 손실 정리는 이익이 난 사람 계좌에서 해야 같은 해 통산됩니다.</p>'}
+  else{var d=one-sum;html+=(d>0?'나눠 담은 덕분에 약 <b>'+fmt(d)+'</b> 적습니다(최대 55만원 = 250만원 × 22%).':'공제 효과 차이는 없습니다.')+'</p>'}
+  var tips=[];
+  if(ag>250||bg>250)tips.push('250만원을 넘긴 사람은 연말 전에 같은 계좌의 손실 종목 정리 여부를 판단하세요. 공제는 다음 해로 넘어가지 않습니다.');
+  if($('b_dep').checked&&bf>800||$('a_dep').checked&&af>800)tips.push('피부양자 배우자의 금융소득이 1,000만원에 가깝습니다. 배당 ETF 신규 매수는 다른 배우자 계좌를 우선 검토하세요.');
+  if(af>1600||bf>1600)tips.push('금융소득 2,000만원 선에 가까운 사람이 있습니다. ISA·연금계좌 배치와 배우자 분산을 같이 보세요.');
+  if(tips.length)html+='<ul>'+tips.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>';
+  $('taxOut').innerHTML=html;
+}
+$('calc').addEventListener('click',calcTax);
+$('ex').addEventListener('click',function(){$('a_gain').value=4147;$('b_gain').value=0;$('a_fin').value=600;$('b_fin').value=300;$('a_dep').checked=false;$('b_dep').checked=true;calcTax()});
+
+/* gift ledger */
+var gifts=[{d:'2020-04-01',a:2000},{d:'2030-04-02',a:2000},{d:'2040-04-03',a:5000}];
+function renderGifts(){
+  $('gifts').innerHTML=gifts.map(function(g,i){return '<div class="gift-row"><div><label for="gd'+i+'">증여일</label><input id="gd'+i+'" type="date" value="'+g.d+'"></div><div><label for="ga'+i+'">금액 (만원)</label><input id="ga'+i+'" type="number" min="0" step="1" value="'+g.a+'"></div><button class="ghost" data-del="'+i+'" aria-label="'+(i+1)+'번째 줄 삭제">삭제</button></div>'}).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-del]'),function(b){b.addEventListener('click',function(){readGifts();gifts.splice(+b.getAttribute('data-del'),1);renderGifts()})});
+}
+function readGifts(){gifts=gifts.map(function(g,i){return {d:$('gd'+i).value,a:$('ga'+i).value===''?NaN:Number($('ga'+i).value)}})}
+function parseD(s){var p=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s);return p?{y:+p[1],m:+p[2],d:+p[3]}:null}
+function ageAt(b,g){var a=g.y-b.y;if(g.m<b.m||(g.m===b.m&&g.d<b.d))a--;return a}
+function key(x){return x.y*10000+x.m*100+x.d}
+function calcGift(){
+  readGifts();
+  var b=parseD($('birth').value);
+  if(!b){$('giftOut').innerHTML='<p class="err">생년월일을 입력하세요.</p>';return}
+  var list=[];
+  for(var i=0;i<gifts.length;i++){var d=parseD(gifts[i].d);var a=gifts[i].a;
+    if(!d||!isFinite(a)||a<0){$('giftOut').innerHTML='<p class="err">'+(i+1)+'번째 줄의 날짜나 금액을 확인하세요.</p>';return}
+    if(key(d)<key(b)){$('giftOut').innerHTML='<p class="err">'+(i+1)+'번째 증여일이 생년월일보다 앞섭니다.</p>';return}
+    list.push({d:d,s:gifts[i].d,a:a})}
+  if(!list.length){$('giftOut').innerHTML='<p class="note">증여를 한 줄 이상 넣으세요.</p>';return}
+  list.sort(function(x,y){return key(x.d)-key(y.d)});
+  var used=[],rows='',totalEx=0;
+  list.forEach(function(g){
+    var start={y:g.d.y-10,m:g.d.m,d:g.d.d};
+    var prior=used.filter(function(u){return key(u.d)>key(start)}).reduce(function(s,u){return s+u.ded},0);
+    var age=ageAt(b,g.d), limit=age>=19?5000:2000;
+    var avail=Math.max(0,limit-prior), ded=Math.min(g.a,avail), ex=g.a-ded;
+    totalEx+=ex; used.push({d:g.d,ded:ded});
+    rows+='<tr><td>'+g.s+'</td><td class="num">만 '+age+'세</td><td class="num">'+fmt(g.a)+'</td><td class="num">'+fmt(prior)+'</td><td class="num">'+fmt(limit)+'</td><td class="num">'+fmt(ded)+'</td><td>'+(ex>0?'<span class="pill warn">공제 초과 '+fmt(ex)+'</span>':'<span class="pill ok">공제 안</span>')+'</td></tr>';
+  });
+  $('giftOut').innerHTML='<div class="tbl"><table><thead><tr><th>증여일</th><th>나이</th><th>금액</th><th>직전 10년 공제 사용</th><th>한도</th><th>이번 공제</th><th>판정</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+    '<p class="big">'+(totalEx>0?'공제를 넘는 금액 합계: '+fmt(totalEx)+' — 증여일 간격이나 금액을 다시 보세요.':'모든 증여가 공제 안입니다. 그래도 증여일·금액·이체 내역은 기록해 두세요.')+'</p>';
+}
+$('addGift').addEventListener('click',function(){readGifts();gifts.push({d:'',a:0});renderGifts()});
+$('calcGift').addEventListener('click',calcGift);
+renderGifts();
+
+/* checklist */
+var items=[
+ '계좌 지도: 누구 이름으로 어떤 계좌(일반·ISA·연금·아이)가 있고 각 역할이 무엇인지 둘 다 안다',
+ '적립 규칙: 매일 또는 매달 정액, 평단·단기 손익은 보지 않기로 했다',
+ '레버리지(QLD 등)·개별주 합계 상한 %를 정했다',
+ '개별주 매도 기준과 매도 후 재매수 금지 기간을 정했다 (FOMO 방지)',
+ '생활비 몇 개월치 비상금은 투자 계좌에 넣지 않는다',
+ '배당 ETF 신규 매수는 금융소득 선이 먼 사람 계좌부터 넣는다',
+ '피부양자 배우자의 금융소득 1,000만원 선을 연 1회 확인한다',
+ '배우자 계좌로 보낸 투자금 이체 내역을 따로 모아 둔다',
+ '아이 증여 장부(날짜·금액·누가 줬는지)를 부모 합산으로 한 곳에 적는다',
+ '아이 계좌 QLD 비중 상한과 아이가 만 19세에 넘겨받을 때의 설명을 정했다',
+ '11~12월: 각자 해외주식 실현손익과 250만원 공제 사용을 확인한다',
+ '다음 해 5월: 각자 해외주식 양도소득세를 신고한다 (대행 신청도 각자)'
+];
+var KEY='couple-invest-checklist-v1',state={};
+try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){state={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+function renderChk(){
+  $('checklist').innerHTML=items.map(function(t,i){return '<li><input type="checkbox" id="c'+i+'"'+(state[i]?' checked':'')+'><label for="c'+i+'" style="margin:0;color:inherit;font-size:.97rem">'+t+'</label></li>'}).join('');
+  items.forEach(function(_,i){$('c'+i).addEventListener('change',function(e){state[i]=e.target.checked;save();prog()})});prog();
+}
+function prog(){var n=items.filter(function(_,i){return state[i]}).length;$('bar').style.width=(n/items.length*100)+'%';$('progTxt').textContent=items.length+'개 중 '+n+'개 합의'}
+$('resetChk').addEventListener('click',function(){state={};save();renderChk()});
+renderChk();
+calcTax();calcGift();
+})();
+</script>
+</body>
+</html>
